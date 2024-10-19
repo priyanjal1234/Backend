@@ -1,12 +1,12 @@
-const express = require('express')
-const app = express()
-require('dotenv').config()
+const express = require('express');
+const app = express();
 
-app.get("/",function(req,res) {
-    res.send("Hello From backend")
-})
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
 
-const PORT = process.env.PORT || 4000
-app.listen(PORT,function() {
-    console.log(`Server is running on port ${PORT}`)
-})
+app.get("/api/data", (req, res) => {
+  res.json({ message: "Hello from API" });
+});
+
+module.exports = app;
